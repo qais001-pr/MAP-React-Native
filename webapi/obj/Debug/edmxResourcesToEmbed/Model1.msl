@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="fypModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="bookid" ColumnName="bookid" />
+          <ScalarProperty Name="booktitle" ColumnName="booktitle" />
+          <ScalarProperty Name="publishdate" ColumnName="publishdate" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="totalCopies" ColumnName="totalCopies" />
+          <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="fypModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="aridno" ColumnName="aridno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="fathername" ColumnName="fathername" />
+          <ScalarProperty Name="section" ColumnName="section" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="semester" ColumnName="semester" />
+          <ScalarProperty Name="profilepic" ColumnName="profilepic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

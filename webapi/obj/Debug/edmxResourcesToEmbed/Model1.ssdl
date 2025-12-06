@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fypModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="bookid" />
+    </Key>
+    <Property Name="bookid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="booktitle" Type="varchar(max)" />
+    <Property Name="publishdate" Type="date" />
+    <Property Name="price" Type="float" />
+    <Property Name="totalCopies" Type="int" />
+    <Property Name="imagepath" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentid" />
+    </Key>
+    <Property Name="studentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aridno" Type="nvarchar" MaxLength="100" />
+    <Property Name="name" Type="varchar(max)" Nullable="false" />
+    <Property Name="fathername" Type="varchar(max)" Nullable="false" />
+    <Property Name="section" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="degree" Type="varchar(max)" />
+    <Property Name="city" Type="varchar(max)" />
+    <Property Name="semester" Type="int" Nullable="false" />
+    <Property Name="profilepic" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="fypModelStoreContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

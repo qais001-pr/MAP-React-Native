@@ -1,10 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\admin\\Desktop\\JS\\FYP-I\\React-Native-FYP-I\\webapi\\",
+  "WorkspaceRootPath": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|c:\\users\\admin\\desktop\\js\\fyp-i\\react-native-fyp-i\\webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|c:\\users\\admin\\desktop\\fyp\\webapi\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|C:\\Users\\admin\\Desktop\\fyp\\webapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|solutionrelative:controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|C:\\Users\\admin\\Desktop\\fyp\\webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|C:\\Users\\admin\\Desktop\\fyp\\webapi\\model1.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5364943-2758-4907-B058-9B9D2C0C411D}|webapi.csproj|solutionrelative:model1.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +31,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "userController.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\JS\\FYP-I\\React-Native-FYP-I\\webapi\\Controllers\\userController.cs",
-              "RelativeDocumentMoniker": "Controllers\\userController.cs",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\JS\\FYP-I\\React-Native-FYP-I\\webapi\\Controllers\\userController.cs",
-              "RelativeToolTip": "Controllers\\userController.cs",
-              "ViewState": "AgIAAAAAAAAAAKBFXVhAwBcAAAAJAAAAAAAAAA==",
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Student.cs",
+              "RelativeDocumentMoniker": "Student.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Student.cs",
+              "RelativeToolTip": "Student.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAUwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T06:45:06.468Z",
+              "WhenOpened": "2025-12-05T12:38:35.005Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "userController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Controllers\\userController.cs",
+              "RelativeDocumentMoniker": "Controllers\\userController.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Controllers\\userController.cs",
+              "RelativeToolTip": "Controllers\\userController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAA6wH4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:36:56.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "Controllers\\StudentController.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA6wBgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T11:46:06.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Model1.Context.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Model1.Context.cs",
+              "RelativeDocumentMoniker": "Model1.Context.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\webapi\\Model1.Context.cs",
+              "RelativeToolTip": "Model1.Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:38:30.832Z"
             }
           ]
         }
