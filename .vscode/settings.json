@@ -1,0 +1,4 @@
+{
+    "dotnet.preferCSharpExtension": true,
+    "postman.settings.dotenv-detection-notification-visibility": false
+}
