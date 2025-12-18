@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities1">
+  <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities3">
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="fypModel.Book">
         <MappingFragment StoreEntitySet="Book">
@@ -25,6 +25,16 @@
           <ScalarProperty Name="city" ColumnName="city" />
           <ScalarProperty Name="semester" ColumnName="semester" />
           <ScalarProperty Name="Profileimage" ColumnName="Profileimage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students1">
+      <EntityTypeMapping TypeName="fypModel.Student1">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="regno" ColumnName="regno" />
+          <ScalarProperty Name="cgpa" ColumnName="cgpa" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

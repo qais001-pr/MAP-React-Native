@@ -25,8 +25,18 @@
     <Property Name="semester" Type="int" Nullable="false" />
     <Property Name="Profileimage" Type="varchar(max)" />
   </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="regno" Type="varchar" MaxLength="150" />
+    <Property Name="cgpa" Type="float" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="fypModelStoreContainer">
     <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

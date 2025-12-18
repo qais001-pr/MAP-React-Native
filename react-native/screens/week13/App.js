@@ -1,127 +1,142 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable semi */
-/* eslint-disable quotes */
-/* eslint-disable comma-dangle */
 import React, { useState } from 'react';
 import {
     View,
     Text,
-    Button,
     FlatList,
     Image,
     StyleSheet,
-    SafeAreaView
+    SafeAreaView,
+    TouchableOpacity,
+    StatusBar,
+    Modal,
 } from 'react-native';
 import { launchCamera } from 'react-native-image-picker';
-
+// import URL from './config.js';
 export default function MyApp() {
-    global.URL = 'http://192.168.240.1/fypwebapi/api/Student/'
+global.URL = 'http://192.168.100.75/fypwebapi/api/Student/'
     const [students, setStudents] = useState([]);
-
     const [imageUri, setImageUri] = useState(null);
     const [imagetype, setimagetype] = useState(null);
+    const [previewVisible, setPreviewVisible] = useState(false);
 
     const getStudents = async () => {
         try {
             const response = await fetch(URL + 'getStudents');
             const data = await response.json();
-            console.log(data.studentList);
-            setStudents(data.studentList);
+            setStudents(data.studentList || []);
+        } catch (error) {
+            console.log('connected');
+            console.error(error);
+        }
+    };
+
+    const getImage = () => {
+        launchCamera({ mediaType: 'photo' }, response => {
+            if (!response.didCancel && !response.errorCode) {
+                setImageUri(response.assets[0].uri);
+                setimagetype(response.assets[0].type);
+                setPreviewVisible(true);
+            }
+        });
+    };
+
+    const addStudent = async () => {
+        const st = {
+            aridno: 7800,
+            name: 'nothing',
+            fathername: 'nothing',
+            section: 'A',
+            degree: 'BSSE',
+            city: 'KLR',
+            semester: 2,
+        };
+
+        const formData = new FormData();
+        formData.append('image', {
+            uri: imageUri,
+            name: 'profile.jpg',
+            type: imagetype,
+        });
+        formData.append('student', JSON.stringify(st));
+
+        try {
+            const response = await fetch(URL + 'AddStudent', {
+                method: 'POST',
+                body: formData,
+            });
+            await response.text();
+            setPreviewVisible(false);
+            setImageUri(null);
+            getStudents();
         } catch (error) {
             console.error(error);
         }
     };
 
-    const getImage = async () => {
-        launchCamera({
-            mediaType: 'photo'
-        }, (response) => {
-            if (response.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
-            }
-            else {
-                console.log(response);
-                setImageUri(response.assets[0].uri);
-                setimagetype(response.assets[0].type);
-            }
-        });
-    }
-    const addStudent = async () => {
-        const st = {
-            aridno: 80,
-            name: "Amad",
-            fathername: "Shokeer",
-            section: "A",
-            degree: "BSSE",
-            city: "KLR",
-            semester: 2
-        }
-        const formData = new FormData();
-        formData.append({
-            uri: imageUri,
-            name: 'profile',
-            type: imagetype,
-        });
-        formData.append("student", JSON.stringify(st));
-        console.log(formData)
-        try {
-            const response = await fetch(URL + 'AddStudent', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Content-Type': 'multipart/form-Data'
-                }
-            });
-            console.log(response)
-            if (response.ok) {
-                console.log("Student Added Successfully")
-            }
-            const result = await response.json();
-            console.log(result);
-        }
-        catch (error) {
-            console.error(error);
-        }
-
-    }
-
-    const renderItem = ({ item, index }) => (
+    const renderItem = ({ item }) => (
         <View style={styles.card}>
-            <Text style={styles.index}>{index + 1}</Text>
-            <View style={styles.infoContainer}>
-                <Text style={styles.name}>Name: {item.name}</Text>
-                <Text>AridNo: {item.aridno}</Text>
-                <Text>Father Name: {item.fathername}</Text>
-                <Text>City: {item.city}</Text>
-                <Text>Section: {item.section}</Text>
-                <Text>Degree: {item.degree}</Text>
-                <Text>Semester: {item.semester}</Text>
-            </View>
             <Image
-                source={{ uri: 'http://192.168.240.1/fypwebapi/images/' + item.Profileimage }}
-                style={styles.image}
-                resizeMode="cover"
+                source={{ uri: 'http://192.168.100.75/fypwebapi/images/' + item.Profileimage }}
+                style={styles.avatar}
             />
+            <View style={styles.cardContent}>
+                <Text style={styles.name}>{item.name}</Text>
+                <Text style={styles.subText}>Arid No: {item.aridno}</Text>
+                <Text style={styles.subText}>Father: {item.fathername}</Text>
+                <View style={styles.row}>
+                    <Text style={styles.tag}>{item.degree}</Text>
+                    <Text style={styles.tag}>Sem {item.semester}</Text>
+                </View>
+            </View>
         </View>
     );
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.header}>Student List</Text>
+            <StatusBar backgroundColor="#1e3a8a" barStyle="light-content" />
+
+            <View style={styles.header}>
+                <Text style={styles.headerTitle}>Students</Text>
+                <Text style={styles.headerSubtitle}>Management Dashboard</Text>
+            </View>
+
             <FlatList
                 data={students}
-                keyExtractor={(item) => item.aridno.toString()}
+                keyExtractor={item => item.aridno.toString()}
                 renderItem={renderItem}
-                contentContainerStyle={styles.listContent}
+                contentContainerStyle={{ padding: 16 }}
+                showsVerticalScrollIndicator={false}
             />
-            <View style={{ gap: 30, bottom: 10 }}>
 
-                <Button title="Get Students" onPress={getStudents} />
-                <Button title="Take Image" onPress={getImage} />
-                <Button title="Add Student" onPress={addStudent} />
+            <View style={styles.bottomBar}>
+                <TouchableOpacity style={styles.primaryBtn} onPress={getStudents}>
+                    <Text style={styles.btnText}>Load</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.secondaryBtn} onPress={getImage}>
+                    <Text style={styles.btnText}>Camera</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.successBtn} onPress={addStudent}>
+                    <Text style={styles.btnText}>Add</Text>
+                </TouchableOpacity>
             </View>
+
+            <Modal visible={previewVisible} transparent animationType="slide">
+                <View style={styles.previewOverlay}>
+                    <View style={styles.previewCard}>
+                        <Text style={styles.previewTitle}>Image Preview</Text>
+                        {imageUri && <Image source={{ uri: imageUri }} style={styles.previewImage} />}
+                        <View style={styles.previewActions}>
+                            <TouchableOpacity style={styles.cancelBtn} onPress={() => setPreviewVisible(false)}>
+                                <Text style={styles.btnText}>Cancel</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.successBtn} onPress={addStudent}>
+                                <Text style={styles.btnText}>Upload</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
         </SafeAreaView>
     );
 }
@@ -129,56 +144,130 @@ export default function MyApp() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f2f2f2',
-        paddingHorizontal: 10,
+        backgroundColor: '#f8fafc',
     },
     header: {
-        textAlign: 'center',
-        fontSize: 28,
-        fontWeight: 'bold',
-        marginVertical: 15,
-        color: '#333',
+        backgroundColor: '#1e3a8a',
+        padding: 20,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
     },
-    listContent: {
-        paddingBottom: 80, // leave space for the button
+    headerTitle: {
+        color: '#fff',
+        fontSize: 26,
+        fontWeight: 'bold',
+    },
+    headerSubtitle: {
+        color: '#c7d2fe',
+        marginTop: 4,
     },
     card: {
-        backgroundColor: '#fff',
-        borderRadius: 10,
-        padding: 15,
-        marginVertical: 8,
         flexDirection: 'row',
-        alignItems: 'center',
-        elevation: 3, // Android shadow
-        shadowColor: '#000', // iOS shadow
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 2,
+        backgroundColor: '#fff',
+        borderRadius: 16,
+        padding: 14,
+        marginBottom: 12,
+        elevation: 4,
     },
-    index: {
-        fontWeight: 'bold',
-        fontSize: 16,
-        marginRight: 10,
+    avatar: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
     },
-    infoContainer: {
+    cardContent: {
         flex: 1,
+        marginLeft: 12,
     },
     name: {
+        fontSize: 18,
         fontWeight: 'bold',
-        fontSize: 16,
-        marginBottom: 5,
-        color: '#555',
+        color: '#111827',
     },
-    image: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
-        marginLeft: 10,
+    subText: {
+        fontSize: 13,
+        color: '#6b7280',
+        marginTop: 2,
     },
-    buttonContainer: {
-        position: 'absolute',
-        bottom: 15,
-        left: 20,
-        right: 20,
+    row: {
+        flexDirection: 'row',
+        marginTop: 8,
+        gap: 8,
+    },
+    tag: {
+        backgroundColor: '#e0e7ff',
+        color: '#1e3a8a',
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 20,
+        fontSize: 12,
+        fontWeight: '600',
+    },
+    bottomBar: {
+        flexDirection: 'row',
+        padding: 12,
+        gap: 10,
+        backgroundColor: '#fff',
+        borderTopWidth: 1,
+        borderColor: '#e5e7eb',
+    },
+    primaryBtn: {
+        flex: 1,
+        backgroundColor: '#1e3a8a',
+        padding: 14,
+        borderRadius: 12,
+        alignItems: 'center',
+    },
+    secondaryBtn: {
+        flex: 1,
+        backgroundColor: '#475569',
+        padding: 14,
+        borderRadius: 12,
+        alignItems: 'center',
+    },
+    successBtn: {
+        flex: 1,
+        backgroundColor: '#16a34a',
+        padding: 14,
+        borderRadius: 12,
+        alignItems: 'center',
+    },
+    btnText: {
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+    previewOverlay: {
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    previewCard: {
+        backgroundColor: '#fff',
+        width: '85%',
+        borderRadius: 16,
+        padding: 16,
+    },
+    previewTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        textAlign: 'center',
+    },
+    previewImage: {
+        width: '100%',
+        height: 250,
+        borderRadius: 12,
+    },
+    previewActions: {
+        flexDirection: 'row',
+        gap: 10,
+        marginTop: 16,
+    },
+    cancelBtn: {
+        flex: 1,
+        backgroundColor: '#dc2626',
+        padding: 14,
+        borderRadius: 12,
+        alignItems: 'center',
     },
 });

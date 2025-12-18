@@ -25,8 +25,18 @@
     <Property Name="semester" Type="Int32" Nullable="false" />
     <Property Name="Profileimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="fypEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityType Name="Student1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="regno" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="cgpa" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="fypEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Books" EntityType="Self.Book" />
     <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Students1" EntityType="Self.Student1" />
   </EntityContainer>
 </Schema>

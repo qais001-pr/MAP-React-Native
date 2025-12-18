@@ -16,7 +16,7 @@ namespace webapi
     public partial class fypEntities : DbContext
     {
         public fypEntities()
-            : base("name=fypEntities1")
+            : base("name=fypEntities3")
         {
         }
     
@@ -27,5 +27,6 @@ namespace webapi
     
         public DbSet<Book> Books { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Student1> Students1 { get; set; }
     }
 }

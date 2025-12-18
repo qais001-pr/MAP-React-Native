@@ -30,9 +30,19 @@
           <Property Name="semester" Type="int" Nullable="false" />
           <Property Name="Profileimage" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="regno" Type="varchar" MaxLength="150" />
+          <Property Name="cgpa" Type="float" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="fypModelStoreContainer">
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -64,16 +74,26 @@
           <Property Name="semester" Type="Int32" Nullable="false" />
           <Property Name="Profileimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="fypEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Student1">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="regno" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="cgpa" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="fypEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Students1" EntityType="Self.Student1" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities1">
+        <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities3">
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="fypModel.Book">
               <MappingFragment StoreEntitySet="Book">
@@ -98,6 +118,16 @@
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="semester" ColumnName="semester" />
                 <ScalarProperty Name="Profileimage" ColumnName="Profileimage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students1">
+            <EntityTypeMapping TypeName="fypModel.Student1">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="regno" ColumnName="regno" />
+                <ScalarProperty Name="cgpa" ColumnName="cgpa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
