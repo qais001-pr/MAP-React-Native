@@ -3,7 +3,8 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\admin\Desktop\fypbuild</_PublishTargetUrl>
-    <History>True|2025-12-18T10:31:45.7494526Z||;</History>
+    <History>True|2025-12-19T11:36:29.7269496Z||;True|2025-12-18T15:31:45.7494526+05:00||;</History>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EntityFramework.dll">
@@ -172,19 +173,19 @@
       <publishTime>05/27/2022 23:41:54</publishTime>
     </File>
     <File Include="bin/webapi.dll">
-      <publishTime>12/18/2025 15:56:43</publishTime>
+      <publishTime>12/19/2025 16:36:28</publishTime>
     </File>
     <File Include="bin/webapi.pdb">
-      <publishTime>12/18/2025 15:56:43</publishTime>
+      <publishTime>12/19/2025 16:36:28</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>11/28/2025 11:44:31</publishTime>
     </File>
     <File Include="Model1.edmx.diagram">
-      <publishTime>12/18/2025 15:24:05</publishTime>
+      <publishTime>12/19/2025 16:33:20</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/18/2025 15:31:45</publishTime>
+      <publishTime>12/19/2025 16:36:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

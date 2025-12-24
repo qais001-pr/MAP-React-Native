@@ -12,13 +12,19 @@ namespace LMS
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class user
     {
-        public int UserID { get; set; }
-        public string FullName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string imageType { get; set; }
-        public byte[] imageBytes { get; set; }
+        public int user_id { get; set; }
+        public string arid_no { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public string full_name { get; set; }
+        public string father_name { get; set; }
+        public string profile_pic { get; set; }
+        public string user_type { get; set; }
+        public string degree { get; set; }
+        public string section { get; set; }
+        public Nullable<int> semester { get; set; }
+        public string city { get; set; }
     }
 }

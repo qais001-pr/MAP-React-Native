@@ -13,10 +13,10 @@ namespace LMS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LMSEntities2 : DbContext
+    public partial class library_management_systemEntities : DbContext
     {
-        public LMSEntities2()
-            : base("name=LMSEntities2")
+        public library_management_systemEntities()
+            : base("name=library_management_systemEntities4")
         {
         }
     
@@ -25,9 +25,8 @@ namespace LMS
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Book> Books { get; set; }
-        public DbSet<IssueBook> IssueBooks { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<book> books { get; set; }
+        public DbSet<issuebook> issuebooks { get; set; }
+        public DbSet<user> users { get; set; }
     }
 }

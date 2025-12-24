@@ -4,256 +4,154 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Books">
+      <Schema Namespace="library_management_systemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="books">
           <Key>
-            <PropertyRef Name="bookid" />
+            <PropertyRef Name="book_id" />
           </Key>
-          <Property Name="bookid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ISBN" Type="varchar(max)" Nullable="false" />
-          <Property Name="BookTitle" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="publishDate" Type="varchar(max)" Nullable="false" />
-          <Property Name="price" Type="float" Nullable="false" />
-          <Property Name="quantity" Type="int" Nullable="false" />
-          <Property Name="imagetype" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imageBytes" Type="varbinary(max)" Nullable="false" />
+          <Property Name="book_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isbn" Type="varchar" MaxLength="100" />
+          <Property Name="book_title" Type="varchar" MaxLength="200" />
+          <Property Name="publish_date" Type="datetime" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="image" Type="varchar(max)" />
+          <Property Name="price" Type="float" />
         </EntityType>
-        <EntityType Name="IssueBook">
+        <EntityType Name="issuebooks">
           <Key>
-            <PropertyRef Name="issueBookid" />
+            <PropertyRef Name="issuebook" />
           </Key>
-          <Property Name="issueBookid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="studentid" Type="int" Nullable="false" />
-          <Property Name="bookid" Type="int" Nullable="false" />
-          <Property Name="status" Type="varchar(max)" />
-          <Property Name="IssueDate" Type="datetime" />
-          <Property Name="ReturnDate" Type="datetime" />
-          <Property Name="fine" Type="float" Nullable="false" />
+          <Property Name="issuebook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="bookid" Type="int" />
+          <Property Name="status" Type="varchar" MaxLength="100" />
+          <Property Name="issuedate" Type="datetime" />
+          <Property Name="returndate" Type="datetime" Nullable="false" />
+          <Property Name="Fine" Type="int" />
         </EntityType>
-        <EntityType Name="Students">
+        <EntityType Name="users">
           <Key>
-            <PropertyRef Name="studentid" />
+            <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="studentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userid" Type="int" Nullable="false" />
-          <Property Name="aridno" Type="varchar(max)" />
-          <Property Name="fullname" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="fathername" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="degree" Type="varchar(max)" Nullable="false" />
-          <Property Name="section" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="semester" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="arid_no" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="20" />
+          <Property Name="full_name" Type="varchar" MaxLength="100" />
+          <Property Name="father_name" Type="varchar" MaxLength="100" />
+          <Property Name="profile_pic" Type="varchar" MaxLength="100" />
+          <Property Name="user_type" Type="varchar" MaxLength="100" />
+          <Property Name="degree" Type="varchar" MaxLength="20" />
+          <Property Name="section" Type="varchar" MaxLength="2" />
+          <Property Name="semester" Type="int" />
           <Property Name="city" Type="varchar" MaxLength="100" />
-          <Property Name="imageType" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imageBytes" Type="varbinary(max)" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FullName" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="imageType" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="imageBytes" Type="varbinary(max)" Nullable="false" />
-        </EntityType>
-        <Association Name="FK__IssueBook__booki__1EA48E88">
-          <End Role="Books" Type="Self.Books" Multiplicity="1" />
-          <End Role="IssueBook" Type="Self.IssueBook" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Books">
-              <PropertyRef Name="bookid" />
-            </Principal>
-            <Dependent Role="IssueBook">
-              <PropertyRef Name="bookid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__IssueBook__stude__1DB06A4F">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
-          <End Role="IssueBook" Type="Self.IssueBook" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="studentid" />
-            </Principal>
-            <Dependent Role="IssueBook">
-              <PropertyRef Name="studentid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="LMSModelStoreContainer">
-          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="IssueBook" EntityType="Self.IssueBook" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__IssueBook__booki__1EA48E88" Association="Self.FK__IssueBook__booki__1EA48E88">
-            <End Role="Books" EntitySet="Books" />
-            <End Role="IssueBook" EntitySet="IssueBook" />
-          </AssociationSet>
-          <AssociationSet Name="FK__IssueBook__stude__1DB06A4F" Association="Self.FK__IssueBook__stude__1DB06A4F">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="IssueBook" EntitySet="IssueBook" />
-          </AssociationSet>
+        <EntityContainer Name="library_management_systemModelStoreContainer">
+          <EntitySet Name="books" EntityType="Self.books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="issuebooks" EntityType="Self.issuebooks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Book">
+      <Schema Namespace="library_management_systemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="book">
           <Key>
-            <PropertyRef Name="bookid" />
+            <PropertyRef Name="book_id" />
           </Key>
-          <Property Name="bookid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ISBN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BookTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="publishDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="price" Type="Double" Nullable="false" />
-          <Property Name="quantity" Type="Int32" Nullable="false" />
-          <Property Name="imagetype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imageBytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <NavigationProperty Name="IssueBooks" Relationship="Self.FK__IssueBook__booki__1EA48E88" FromRole="Books" ToRole="IssueBook" />
+          <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isbn" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="book_title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="publish_date" Type="DateTime" Precision="3" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="Double" />
         </EntityType>
-        <EntityType Name="IssueBook">
+        <EntityType Name="issuebook">
           <Key>
-            <PropertyRef Name="issueBookid" />
+            <PropertyRef Name="issuebook1" />
           </Key>
-          <Property Name="issueBookid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="IssueDate" Type="DateTime" Precision="3" />
-          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Book" Relationship="Self.FK__IssueBook__booki__1EA48E88" FromRole="IssueBook" ToRole="Books" />
-          <NavigationProperty Name="Student" Relationship="Self.FK__IssueBook__stude__1DB06A4F" FromRole="IssueBook" ToRole="Students" />
-          <Property Name="fine" Type="Double" Nullable="false" />
+          <Property Name="issuebook1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="bookid" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="issuedate" Type="DateTime" Precision="3" />
+          <Property Name="returndate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fine" Type="Int32" />
         </EntityType>
-        <EntityType Name="Student">
+        <EntityType Name="user">
           <Key>
-            <PropertyRef Name="studentid" />
+            <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="studentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userid" Type="Int32" Nullable="false" />
-          <Property Name="aridno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fathername" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="section" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="semester" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="arid_no" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="full_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="father_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="profile_pic" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="user_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="degree" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="section" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="semester" Type="Int32" />
           <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="imageType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imageBytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="IssueBooks" Relationship="Self.FK__IssueBook__stude__1DB06A4F" FromRole="Students" ToRole="IssueBook" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imageType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="imageBytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-        </EntityType>
-        <Association Name="FK__IssueBook__booki__1EA48E88">
-          <End Role="Books" Type="Self.Book" Multiplicity="1" />
-          <End Role="IssueBook" Type="Self.IssueBook" Multiplicity="*" />
-        </Association>
-        <Association Name="FK__IssueBook__stude__1DB06A4F">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="IssueBook" Type="Self.IssueBook" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="LMSEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Books" EntityType="Self.Book" />
-          <EntitySet Name="IssueBooks" EntityType="Self.IssueBook" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__IssueBook__booki__1EA48E88" Association="Self.FK__IssueBook__booki__1EA48E88">
-            <End Role="Books" EntitySet="Books" />
-            <End Role="IssueBook" EntitySet="IssueBooks" />
-          </AssociationSet>
-          <AssociationSet Name="FK__IssueBook__stude__1DB06A4F" Association="Self.FK__IssueBook__stude__1DB06A4F">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="IssueBook" EntitySet="IssueBooks" />
-          </AssociationSet>
+        <EntityContainer Name="library_management_systemEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="books" EntityType="Self.book" />
+          <EntitySet Name="issuebooks" EntityType="Self.issuebook" />
+          <EntitySet Name="users" EntityType="Self.user" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LMSModelStoreContainer" CdmEntityContainer="LMSEntities2">
-          <EntitySetMapping Name="Books">
-            <EntityTypeMapping TypeName="LMSModel.Book">
-              <MappingFragment StoreEntitySet="Books">
-                <ScalarProperty Name="bookid" ColumnName="bookid" />
-                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
-                <ScalarProperty Name="publishDate" ColumnName="publishDate" />
-                <ScalarProperty Name="price" ColumnName="price" />
+        <EntityContainerMapping StorageEntityContainer="library_management_systemModelStoreContainer" CdmEntityContainer="library_management_systemEntities4">
+          <EntitySetMapping Name="books">
+            <EntityTypeMapping TypeName="library_management_systemModel.book">
+              <MappingFragment StoreEntitySet="books">
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="isbn" ColumnName="isbn" />
+                <ScalarProperty Name="book_title" ColumnName="book_title" />
+                <ScalarProperty Name="publish_date" ColumnName="publish_date" />
                 <ScalarProperty Name="quantity" ColumnName="quantity" />
-                <ScalarProperty Name="imagetype" ColumnName="imagetype" />
-                <ScalarProperty Name="imageBytes" ColumnName="imageBytes" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="price" ColumnName="price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="IssueBooks">
-            <EntityTypeMapping TypeName="LMSModel.IssueBook">
-              <MappingFragment StoreEntitySet="IssueBook">
-                <ScalarProperty Name="fine" ColumnName="fine" />
-                <ScalarProperty Name="issueBookid" ColumnName="issueBookid" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
-                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="LMSModel.Student">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <EntitySetMapping Name="issuebooks">
+            <EntityTypeMapping TypeName="library_management_systemModel.issuebook">
+              <MappingFragment StoreEntitySet="issuebooks">
+                <ScalarProperty Name="issuebook1" ColumnName="issuebook" />
                 <ScalarProperty Name="userid" ColumnName="userid" />
-                <ScalarProperty Name="aridno" ColumnName="aridno" />
-                <ScalarProperty Name="fullname" ColumnName="fullname" />
-                <ScalarProperty Name="fathername" ColumnName="fathername" />
+                <ScalarProperty Name="bookid" ColumnName="bookid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+                <ScalarProperty Name="returndate" ColumnName="returndate" />
+                <ScalarProperty Name="Fine" ColumnName="Fine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="library_management_systemModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="arid_no" ColumnName="arid_no" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="father_name" ColumnName="father_name" />
+                <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="section" ColumnName="section" />
                 <ScalarProperty Name="semester" ColumnName="semester" />
                 <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="imageType" ColumnName="imageType" />
-                <ScalarProperty Name="imageBytes" ColumnName="imageBytes" />
-                <ScalarProperty Name="password" ColumnName="password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="LMSModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="imageType" ColumnName="imageType" />
-                <ScalarProperty Name="imageBytes" ColumnName="imageBytes" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="FK__IssueBook__booki__1EA48E88" TypeName="LMSModel.FK__IssueBook__booki__1EA48E88" StoreEntitySet="IssueBook">
-            <EndProperty Name="Books">
-              <ScalarProperty Name="bookid" ColumnName="bookid" />
-            </EndProperty>
-            <EndProperty Name="IssueBook">
-              <ScalarProperty Name="issueBookid" ColumnName="issueBookid" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK__IssueBook__stude__1DB06A4F" TypeName="LMSModel.FK__IssueBook__stude__1DB06A4F" StoreEntitySet="IssueBook">
-            <EndProperty Name="Students">
-              <ScalarProperty Name="studentid" ColumnName="studentid" />
-            </EndProperty>
-            <EndProperty Name="IssueBook">
-              <ScalarProperty Name="issueBookid" ColumnName="issueBookid" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

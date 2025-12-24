@@ -4,130 +4,55 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="fypModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Book">
+      <Schema Namespace="TaskModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Userlocation">
           <Key>
-            <PropertyRef Name="bookid" />
+            <PropertyRef Name="userid" />
           </Key>
-          <Property Name="bookid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="booktitle" Type="varchar(max)" />
-          <Property Name="publishdate" Type="date" />
-          <Property Name="price" Type="float" />
-          <Property Name="totalCopies" Type="int" />
-          <Property Name="imagepath" Type="varbinary(max)" />
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uname" Type="varchar" MaxLength="100" />
+          <Property Name="lat" Type="float" Nullable="false" />
+          <Property Name="lon" Type="float" Nullable="false" />
+          <Property Name="locName" Type="varchar(max)" />
+          <Property Name="DateNow" Type="datetime" />
         </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="studentid" />
-          </Key>
-          <Property Name="studentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="aridno" Type="nvarchar" MaxLength="100" />
-          <Property Name="name" Type="varchar(max)" Nullable="false" />
-          <Property Name="fathername" Type="varchar(max)" Nullable="false" />
-          <Property Name="section" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="degree" Type="varchar(max)" />
-          <Property Name="city" Type="varchar(max)" />
-          <Property Name="semester" Type="int" Nullable="false" />
-          <Property Name="Profileimage" Type="varchar(max)" />
-        </EntityType>
-        <EntityType Name="Students">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="100" />
-          <Property Name="regno" Type="varchar" MaxLength="150" />
-          <Property Name="cgpa" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityContainer Name="fypModelStoreContainer">
-          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="TaskModelStoreContainer">
+          <EntitySet Name="Userlocation" EntityType="Self.Userlocation" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="fypModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Book">
+      <Schema Namespace="TaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Userlocation">
           <Key>
-            <PropertyRef Name="bookid" />
+            <PropertyRef Name="userid" />
           </Key>
-          <Property Name="bookid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="booktitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="publishdate" Type="DateTime" Precision="0" />
-          <Property Name="price" Type="Double" />
-          <Property Name="totalCopies" Type="Int32" />
-          <Property Name="imagepath" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lat" Type="Double" Nullable="false" />
+          <Property Name="lon" Type="Double" Nullable="false" />
+          <Property Name="locName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateNow" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="studentid" />
-          </Key>
-          <Property Name="studentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="aridno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fathername" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="section" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="semester" Type="Int32" Nullable="false" />
-          <Property Name="Profileimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Student1">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="regno" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="cgpa" Type="Double" Nullable="false" />
-        </EntityType>
-        <EntityContainer Name="fypEntities3" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Books" EntityType="Self.Book" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="Students1" EntityType="Self.Student1" />
+        <EntityContainer Name="TaskEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Userlocations" EntityType="Self.Userlocation" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities3">
-          <EntitySetMapping Name="Books">
-            <EntityTypeMapping TypeName="fypModel.Book">
-              <MappingFragment StoreEntitySet="Book">
-                <ScalarProperty Name="bookid" ColumnName="bookid" />
-                <ScalarProperty Name="booktitle" ColumnName="booktitle" />
-                <ScalarProperty Name="publishdate" ColumnName="publishdate" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="totalCopies" ColumnName="totalCopies" />
-                <ScalarProperty Name="imagepath" ColumnName="imagepath" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="fypModel.Student">
-              <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="studentid" ColumnName="studentid" />
-                <ScalarProperty Name="aridno" ColumnName="aridno" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="fathername" ColumnName="fathername" />
-                <ScalarProperty Name="section" ColumnName="section" />
-                <ScalarProperty Name="degree" ColumnName="degree" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="semester" ColumnName="semester" />
-                <ScalarProperty Name="Profileimage" ColumnName="Profileimage" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students1">
-            <EntityTypeMapping TypeName="fypModel.Student1">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="regno" ColumnName="regno" />
-                <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+        <EntityContainerMapping StorageEntityContainer="TaskModelStoreContainer" CdmEntityContainer="TaskEntities2">
+          <EntitySetMapping Name="Userlocations">
+            <EntityTypeMapping TypeName="TaskModel.Userlocation">
+              <MappingFragment StoreEntitySet="Userlocation">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="locName" ColumnName="locName" />
+                <ScalarProperty Name="DateNow" ColumnName="DateNow" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -13,10 +13,10 @@ namespace webapi
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class fypEntities : DbContext
+    public partial class TaskEntities2 : DbContext
     {
-        public fypEntities()
-            : base("name=fypEntities3")
+        public TaskEntities2()
+            : base("name=TaskEntities2")
         {
         }
     
@@ -25,8 +25,6 @@ namespace webapi
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Book> Books { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Student1> Students1 { get; set; }
+        public DbSet<Userlocation> Userlocations { get; set; }
     }
 }

@@ -1,42 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="fypModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Book">
+<Schema Namespace="TaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Userlocation">
     <Key>
-      <PropertyRef Name="bookid" />
+      <PropertyRef Name="userid" />
     </Key>
-    <Property Name="bookid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="booktitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="publishdate" Type="DateTime" Precision="0" />
-    <Property Name="price" Type="Double" />
-    <Property Name="totalCopies" Type="Int32" />
-    <Property Name="imagepath" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="lon" Type="Double" Nullable="false" />
+    <Property Name="locName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateNow" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityType Name="Student">
-    <Key>
-      <PropertyRef Name="studentid" />
-    </Key>
-    <Property Name="studentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="aridno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="fathername" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="section" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="semester" Type="Int32" Nullable="false" />
-    <Property Name="Profileimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="Student1">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="regno" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="cgpa" Type="Double" Nullable="false" />
-  </EntityType>
-  <EntityContainer Name="fypEntities3" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Books" EntityType="Self.Book" />
-    <EntitySet Name="Students" EntityType="Self.Student" />
-    <EntitySet Name="Students1" EntityType="Self.Student1" />
+  <EntityContainer Name="TaskEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Userlocations" EntityType="Self.Userlocation" />
   </EntityContainer>
 </Schema>

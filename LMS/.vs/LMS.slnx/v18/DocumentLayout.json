@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|c:\\users\\admin\\desktop\\fyp\\lms\\lms\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|solutionrelative:lms\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|c:\\users\\admin\\desktop\\fyp\\lms\\lms\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|solutionrelative:lms\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|c:\\users\\admin\\desktop\\fyp\\lms\\lms\\models\\issuebooktostudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|solutionrelative:lms\\models\\issuebooktostudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|c:\\users\\admin\\desktop\\fyp\\lms\\lms\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|solutionrelative:lms\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|C:\\Users\\admin\\Desktop\\fyp\\LMS\\lms\\models\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|solutionrelative:lms\\models\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|c:\\users\\admin\\desktop\\fyp\\lms\\lms\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2D42FC-7CCC-453C-84CB-BEDAEEC1293B}|LMS\\LMS.csproj|solutionrelative:lms\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,41 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "LMS\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\UserController.cs",
-              "RelativeToolTip": "LMS\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAwBAAAAAAAAAAAqwP4AAAAoAAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "LMS\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "LMS\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAgwLsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T14:54:18.601Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-12-24T12:41:20.197Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IssueBookToStudent.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Models\\IssueBookToStudent.cs",
-              "RelativeDocumentMoniker": "LMS\\Models\\IssueBookToStudent.cs",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Models\\IssueBookToStudent.cs",
-              "RelativeToolTip": "LMS\\Models\\IssueBookToStudent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
+              "Title": "studentController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\studentController.cs",
+              "RelativeDocumentMoniker": "LMS\\Controllers\\studentController.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\studentController.cs",
+              "RelativeToolTip": "LMS\\Controllers\\studentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T16:08:32.582Z",
+              "WhenOpened": "2025-12-24T12:41:11.644Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Auth.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Models\\Auth.cs",
-              "RelativeDocumentMoniker": "LMS\\Models\\Auth.cs",
-              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Models\\Auth.cs",
-              "RelativeToolTip": "LMS\\Models\\Auth.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "LMS\\Controllers\\BooksController.cs",
+              "ToolTip": "C:\\Users\\admin\\Desktop\\fyp\\LMS\\LMS\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "LMS\\Controllers\\BooksController.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAowLkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T05:10:00.337Z",
+              "WhenOpened": "2025-12-24T12:40:36.661Z",
               "EditorCaption": ""
             }
           ]

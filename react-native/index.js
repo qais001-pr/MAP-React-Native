@@ -63,5 +63,8 @@ import { AppRegistry } from 'react-native';
 // import Auth from './screens/week12/Auth';
 import { name as appName } from './app.json';
 // import MyApp from './screens/week13/App';
-import App from './screens/week14/App';
+// import App from './screens/week14/App';
+// import App from './screens/Task/App';
+import App from './screens/LMS/screens/App';
+
 AppRegistry.registerComponent(appName, () => App);

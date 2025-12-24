@@ -1,40 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities3">
-    <EntitySetMapping Name="Books">
-      <EntityTypeMapping TypeName="fypModel.Book">
-        <MappingFragment StoreEntitySet="Book">
-          <ScalarProperty Name="bookid" ColumnName="bookid" />
-          <ScalarProperty Name="booktitle" ColumnName="booktitle" />
-          <ScalarProperty Name="publishdate" ColumnName="publishdate" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="totalCopies" ColumnName="totalCopies" />
-          <ScalarProperty Name="imagepath" ColumnName="imagepath" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Students">
-      <EntityTypeMapping TypeName="fypModel.Student">
-        <MappingFragment StoreEntitySet="Student">
-          <ScalarProperty Name="studentid" ColumnName="studentid" />
-          <ScalarProperty Name="aridno" ColumnName="aridno" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="fathername" ColumnName="fathername" />
-          <ScalarProperty Name="section" ColumnName="section" />
-          <ScalarProperty Name="degree" ColumnName="degree" />
-          <ScalarProperty Name="city" ColumnName="city" />
-          <ScalarProperty Name="semester" ColumnName="semester" />
-          <ScalarProperty Name="Profileimage" ColumnName="Profileimage" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Students1">
-      <EntityTypeMapping TypeName="fypModel.Student1">
-        <MappingFragment StoreEntitySet="Students">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="regno" ColumnName="regno" />
-          <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+  <EntityContainerMapping StorageEntityContainer="TaskModelStoreContainer" CdmEntityContainer="TaskEntities2">
+    <EntitySetMapping Name="Userlocations">
+      <EntityTypeMapping TypeName="TaskModel.Userlocation">
+        <MappingFragment StoreEntitySet="Userlocation">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="uname" ColumnName="uname" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lon" ColumnName="lon" />
+          <ScalarProperty Name="locName" ColumnName="locName" />
+          <ScalarProperty Name="DateNow" ColumnName="DateNow" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

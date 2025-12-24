@@ -12,22 +12,14 @@ namespace LMS
     using System;
     using System.Collections.Generic;
     
-    public partial class Book
+    public partial class book
     {
-        public Book()
-        {
-            this.IssueBooks = new HashSet<IssueBook>();
-        }
-    
-        public int bookid { get; set; }
-        public string ISBN { get; set; }
-        public string BookTitle { get; set; }
-        public string publishDate { get; set; }
-        public double price { get; set; }
-        public int quantity { get; set; }
-        public string imagetype { get; set; }
-        public byte[] imageBytes { get; set; }
-    
-        public virtual ICollection<IssueBook> IssueBooks { get; set; }
+        public int book_id { get; set; }
+        public string isbn { get; set; }
+        public string book_title { get; set; }
+        public Nullable<System.DateTime> publish_date { get; set; }
+        public Nullable<int> quantity { get; set; }
+        public string image { get; set; }
+        public Nullable<double> price { get; set; }
     }
 }

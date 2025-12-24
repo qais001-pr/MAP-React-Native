@@ -12,15 +12,14 @@ namespace LMS
     using System;
     using System.Collections.Generic;
     
-    public partial class IssueBook
+    public partial class issuebook
     {
-        public int issueBookid { get; set; }
+        public int issuebook1 { get; set; }
+        public Nullable<int> userid { get; set; }
+        public Nullable<int> bookid { get; set; }
         public string status { get; set; }
-        public Nullable<System.DateTime> IssueDate { get; set; }
-        public Nullable<System.DateTime> ReturnDate { get; set; }
-        public double fine { get; set; }
-    
-        public virtual Book Book { get; set; }
-        public virtual Student Student { get; set; }
+        public Nullable<System.DateTime> issuedate { get; set; }
+        public System.DateTime returndate { get; set; }
+        public Nullable<int> Fine { get; set; }
     }
 }
